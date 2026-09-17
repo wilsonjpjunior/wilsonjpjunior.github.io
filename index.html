@@ -239,6 +239,9 @@
     backToTop.classList.toggle('visible', window.scrollY > 500);
   });
   backToTop.addEventListener('click', () => {
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
