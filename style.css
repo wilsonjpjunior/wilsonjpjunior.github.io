@@ -23,9 +23,96 @@ a:hover { color: var(--accent-green); }
 
 .hero {
   min-height: 100vh;
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3), var(--bg-4));
+  background-size: 300% 300%;
+  animation: gradientShift 18s ease infinite;
   display: flex;
   flex-direction: column;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.35;
+}
+
+.blob-1 {
+  width: 380px;
+  height: 380px;
+  top: -100px;
+  left: -80px;
+  background: radial-gradient(circle, var(--accent-cyan), transparent 70%);
+  animation: floatBlob 14s ease-in-out infinite;
+}
+
+.blob-2 {
+  width: 320px;
+  height: 320px;
+  bottom: -80px;
+  right: -60px;
+  background: radial-gradient(circle, var(--accent-green), transparent 70%);
+  animation: floatBlob 16s ease-in-out infinite reverse;
+}
+
+.blob-3 {
+  width: 260px;
+  height: 260px;
+  top: 40%;
+  left: 55%;
+  background: radial-gradient(circle, var(--accent-cyan), transparent 70%);
+  animation: floatBlob 20s ease-in-out infinite;
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+.floating-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  opacity: 0.5;
+  animation: floatIcon 8s ease-in-out infinite;
+}
+
+.icon-1 { top: 18%; left: 12%; animation-delay: 0s; }
+.icon-2 { top: 65%; left: 18%; width: 40px; height: 40px; animation-delay: 2s; }
+.icon-3 { top: 25%; right: 14%; width: 44px; height: 44px; animation-delay: 4s; }
+
+@keyframes floatIcon {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(6deg); }
+}
+
+.navbar, .hero-content { position: relative; z-index: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero, .blob, .floating-icon { animation: none; }
 }
 
 .navbar {
@@ -107,6 +194,20 @@ a:hover { color: var(--accent-green); }
   margin: 0 auto;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
 .section.alt { max-width: 100%; background: var(--bg-1); }
 .section.alt > * { max-width: 1000px; margin-left: auto; margin-right: auto; }
 
@@ -122,7 +223,18 @@ a:hover { color: var(--accent-green); }
 
 .timeline { display: flex; flex-direction: column; gap: 2rem; }
 
-.timeline-item { display: flex; gap: 1.2rem; align-items: flex-start; }
+.timeline-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 0.6rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.timeline-item:hover {
+  transform: translateX(6px);
+  background: rgba(255,255,255,0.03);
+}
 
 .timeline-dot {
   width: 14px;
@@ -143,6 +255,12 @@ a:hover { color: var(--accent-green); }
   border: 1px solid rgba(56,189,248,0.25);
   border-radius: 10px;
   padding: 2rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56,189,248,0.6);
+  box-shadow: 0 12px 30px rgba(56,189,248,0.15);
 }
 .card h3 { color: var(--text-light); margin-bottom: 0.8rem; }
 
@@ -153,12 +271,25 @@ a:hover { color: var(--accent-green); }
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
   font-size: 0.85rem;
+  transition: transform 0.2s ease;
 }
+.tag:hover { transform: scale(1.08); }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.8rem;
+}
+.skill-group {
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.skill-group:hover {
+  transform: translateY(-4px);
+  border-color: rgba(16,185,129,0.3);
+  background: rgba(255,255,255,0.03);
 }
 .skill-group h4 { color: var(--accent-cyan); margin-bottom: 0.4rem; }
 .skill-group p { color: var(--text-muted); }
