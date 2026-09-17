@@ -182,6 +182,12 @@
 
 </main>
 
+<button id="back-to-top" aria-label="Voltar ao topo">
+  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
 <footer>
   <p>&copy; 2026 Wilson JP Júnior</p>
 </footer>
@@ -197,6 +203,14 @@
     });
   }, { threshold: 0.15 });
   revealEls.forEach(el => observer.observe(el));
+
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('visible', window.scrollY > 500);
+  });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 </script>
 
 </body>

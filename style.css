@@ -358,3 +358,40 @@ footer {
   .hero-content h1 { font-size: 2.2rem; }
   .section { padding: 3.5rem 1.5rem; }
 }
+
+#back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+  color: var(--bg-1);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 100;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#back-to-top:hover {
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #back-to-top { transition: opacity 0.15s ease; }
+  #back-to-top:hover { transform: translateY(0); }
+}
