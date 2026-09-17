@@ -395,3 +395,30 @@ footer {
   #back-to-top { transition: opacity 0.15s ease; }
   #back-to-top:hover { transform: translateY(0); }
 }
+
+.toast {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.4rem;
+  border-radius: 8px;
+  background: rgba(16,185,129,0.15);
+  border: 1px solid var(--accent-green);
+  color: var(--text-light);
+  max-width: 500px;
+  opacity: 0;
+  transform: translateY(-8px);
+  height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
+  padding: 0.9rem 1.4rem;
+}
+
+.toast.error {
+  background: rgba(239,68,68,0.15);
+  border-color: #ef4444;
+}

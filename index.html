@@ -179,6 +179,7 @@
       <a href="https://instagram.com/wilsonjpjunior.dev" target="_blank" rel="noopener">Instagram</a>
       <span>Campinas, SP</span>
     </div>
+    <div id="form-toast" class="toast" role="status" aria-live="polite"></div>
   </section>
 
 </main>
@@ -239,6 +240,40 @@
   });
   backToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  const contactForm = document.getElementById('contact-form');
+  const toast = document.getElementById('form-toast');
+  let toastTimer;
+
+  function showToast(message, isError) {
+    toast.textContent = message;
+    toast.className = 'toast visible' + (isError ? ' error' : '');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('visible'), 5000);
+  }
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        showToast('Mensagem enviada! Retorno em breve.', false);
+        contactForm.reset();
+      } else {
+        showToast('Não foi possível enviar. Tente novamente ou chame no WhatsApp.', true);
+      }
+    } catch (err) {
+      showToast('Falha de conexão. Tente novamente ou chame no WhatsApp.', true);
+    } finally {
+      submitBtn.disabled = false;
+    }
   });
 </script>
 
