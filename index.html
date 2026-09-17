@@ -170,6 +170,7 @@
       <input type="text" name="name" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu e-mail" required>
       <textarea name="message" placeholder="Sua mensagem" rows="5" required></textarea>
+      <input type="hidden" name="Origem" id="origem-field">
       <button type="submit" class="btn btn-primary">Enviar mensagem</button>
     </form>
     <div class="contact-links">
@@ -193,6 +194,34 @@
 </footer>
 
 <script>
+  (function trackOrigin() {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get('utm_source');
+    const medium = params.get('utm_medium');
+    const hasFbclid = params.has('fbclid');
+
+    let origem = null;
+    if (source) {
+      origem = medium ? `${source} (${medium})` : source;
+    } else if (hasFbclid) {
+      origem = 'Facebook/Instagram (link direto)';
+    } else if (document.referrer) {
+      try { origem = new URL(document.referrer).hostname; } catch (e) {}
+    }
+
+    if (origem) {
+      localStorage.setItem('origem_visita', origem);
+    }
+    const origemField = document.getElementById('origem-field');
+    if (origemField) {
+      origemField.value = localStorage.getItem('origem_visita') || 'Direto/desconhecido';
+    }
+
+    if (window.location.search) {
+      history.replaceState(null, '', window.location.pathname + window.location.hash);
+    }
+  })();
+
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
