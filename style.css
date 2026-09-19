@@ -271,6 +271,7 @@ a:hover { color: var(--accent-green); }
   border-color: rgba(56,189,248,0.6);
   box-shadow: 0 12px 30px rgba(56,189,248,0.15);
 }
+.card + .card { margin-top: 1.5rem; }
 .card h3 { color: var(--text-light); margin-bottom: 0.8rem; }
 
 .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
