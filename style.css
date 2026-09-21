@@ -274,6 +274,25 @@ a:hover { color: var(--accent-green); }
 .card + .card { margin-top: 1.5rem; }
 .card h3 { color: var(--text-light); margin-bottom: 0.8rem; }
 
+.project-card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.project-thumb {
+  width: 230px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.project-card:hover .project-thumb {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 12px 30px rgba(56,189,248,0.25);
+}
+.project-body { min-width: 0; }
+
 .tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.2rem; }
 .tag {
   background: rgba(16,185,129,0.15);
@@ -358,6 +377,12 @@ footer {
   .nav-links a { margin: 0 0.6rem; font-size: 0.85rem; }
   .hero-content h1 { font-size: 2.2rem; }
   .section { padding: 3.5rem 1.5rem; }
+  .project-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+  .project-thumb { width: 100%; max-width: 320px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card:hover .project-thumb { transform: none; }
 }
 
 #back-to-top {
