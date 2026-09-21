@@ -101,27 +101,20 @@ a:hover { color: var(--accent-green); }
   50% { transform: translate(30px, -30px) scale(1.1); }
 }
 
-.floating-icon {
-  position: absolute;
-  width: 48px;
-  height: 48px;
-  opacity: 0.5;
-  animation: floatIcon 8s ease-in-out infinite;
-}
-
-.icon-1 { top: 18%; left: 12%; animation-delay: 0s; }
-.icon-2 { top: 65%; left: 18%; width: 40px; height: 40px; animation-delay: 2s; }
-.icon-3 { top: 25%; right: 14%; width: 44px; height: 44px; animation-delay: 4s; }
-
-@keyframes floatIcon {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-18px) rotate(6deg); }
-}
+.net { position: absolute; inset: 0; width: 100%; height: 100%; }
+.net .edge { fill: none; stroke: url(#edge); stroke-width: 1.4; opacity: 0.55; }
+.net .node { fill: var(--bg-4); stroke: var(--accent-cyan); stroke-width: 1.6; }
+.net .node.g { stroke: var(--accent-green); }
+.net .halo { fill: var(--accent-cyan); opacity: 0.12; }
+.net .halo.g { fill: var(--accent-green); }
+.net text { font: 600 13px "Segoe UI", Arial, sans-serif; fill: var(--text-muted); letter-spacing: 0.04em; }
+.net .pill { fill: rgba(10,37,64,0.75); stroke: rgba(56,189,248,0.35); }
+.net .pulse { fill: var(--text-light); filter: url(#glow); }
 
 .navbar, .hero-content { position: relative; z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero, .blob, .floating-icon { animation: none; }
+  .hero, .blob { animation: none; }
 }
 
 .navbar {
@@ -379,6 +372,8 @@ footer {
   .section { padding: 3.5rem 1.5rem; }
   .project-card { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
   .project-thumb { width: 100%; max-width: 320px; }
+  .net text, .net .pill { display: none; }
+  .net { opacity: 0.7; }
 }
 
 @media (prefers-reduced-motion: reduce) {

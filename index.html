@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wilson JP Júnior — Desenvolvedor Full Stack</title>
 <meta name="description" content="Desenvolvedor Full Stack .NET & Angular | Plataforma de Pagamentos | Sites e Apps para Pequenos Negócios">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
@@ -22,9 +22,63 @@
       </defs>
       <rect width="800" height="600" fill="url(#grid)"/>
     </svg>
-    <svg class="floating-icon icon-1" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4L2 12l6 8M16 4l6 8-6 8" stroke="url(#g1)" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs></svg>
-    <svg class="floating-icon icon-2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="url(#g2)" stroke-width="1.4" fill="none"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15.5 0 18M12 3c-2.5 2.5-2.5 15.5 0 18" stroke="url(#g2)" stroke-width="1.2" fill="none"/><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs></svg>
-    <svg class="floating-icon icon-3" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1" stroke="url(#g3)" stroke-width="1.4" fill="none"/><rect x="3" y="10" width="18" height="4" rx="1" stroke="url(#g3)" stroke-width="1.4" fill="none"/><rect x="3" y="16" width="10" height="4" rx="1" stroke="url(#g3)" stroke-width="1.4" fill="none"/><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs></svg>
+    <svg class="net" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#10b981"/></linearGradient>
+        <filter id="glow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+
+      <path id="e1"  class="edge" d="M150 190 C 210 230, 250 280, 300 330"/>
+      <path id="e2"  class="edge" d="M110 430 C 170 400, 240 370, 300 330"/>
+      <path id="e3"  class="edge" d="M300 330 C 290 420, 250 500, 205 585"/>
+      <path id="e4"  class="edge" d="M150 190 C 250 140, 340 110, 420 100"/>
+      <path id="e5"  class="edge" d="M420 100 C 520 70, 660 70, 760 90"/>
+      <path id="e6"  class="edge" d="M760 90 C 880 100, 970 120, 1050 165"/>
+      <path id="e7"  class="edge" d="M1050 165 C 1030 230, 960 290, 905 335"/>
+      <path id="e8"  class="edge" d="M905 335 C 990 380, 1040 420, 1085 470"/>
+      <path id="e9"  class="edge" d="M1085 470 C 1060 540, 1010 580, 955 610"/>
+      <path id="e10" class="edge" d="M955 610 C 880 640, 780 630, 700 605"/>
+      <path id="e11" class="edge" d="M700 605 C 640 630, 580 635, 520 622"/>
+      <path id="e12" class="edge" d="M520 622 C 400 640, 290 620, 205 585"/>
+      <path id="e13" class="edge" d="M110 430 C 90 380, 60 340, 40 300"/>
+      <path id="e14" class="edge" d="M1085 470 C 1120 420, 1140 380, 1155 335"/>
+
+      <g>
+        <circle class="halo" cx="150" cy="190" r="26"/><circle class="node" cx="150" cy="190" r="9"/>
+        <rect class="pill" x="168" y="170" width="112" height="26" rx="13"/><text x="182" y="188">API Gateway</text>
+
+        <circle class="halo g" cx="110" cy="430" r="26"/><circle class="node g" cx="110" cy="430" r="9"/>
+        <rect class="pill" x="128" y="410" width="58" height="26" rx="13"/><text x="141" y="428">Auth</text>
+
+        <circle class="halo" cx="300" cy="330" r="32"/><circle class="node" cx="300" cy="330" r="11"/>
+        <rect class="pill" x="256" y="292" width="100" height="26" rx="13"/><text x="269" y="310">Pagamentos</text>
+
+        <circle class="halo g" cx="205" cy="585" r="26"/><circle class="node g" cx="205" cy="585" r="9"/>
+        <rect class="pill" x="223" y="565" width="104" height="26" rx="13"/><text x="236" y="583">Conciliação</text>
+
+        <circle class="halo g" cx="1050" cy="165" r="26"/><circle class="node g" cx="1050" cy="165" r="9"/>
+        <rect class="pill" x="912" y="146" width="118" height="26" rx="13"/><text x="925" y="164">Notificações</text>
+
+        <circle class="halo" cx="905" cy="335" r="30"/><circle class="node" cx="905" cy="335" r="11"/>
+        <rect class="pill" x="800" y="298" width="90" height="26" rx="13"/><text x="812" y="316">Middleware</text>
+
+        <circle class="halo g" cx="1085" cy="470" r="26"/><circle class="node g" cx="1085" cy="470" r="9"/>
+        <rect class="pill" x="980" y="450" width="86" height="26" rx="13"/><text x="993" y="468">Relatórios</text>
+
+        <circle class="halo" cx="955" cy="610" r="26"/><circle class="node" cx="955" cy="610" r="9"/>
+        <rect class="pill" x="848" y="590" width="86" height="26" rx="13"/><text x="861" y="608">Pagar.me</text>
+
+        <g class="node"><circle cx="420" cy="100" r="6"/><circle cx="760" cy="90" r="6"/><circle cx="700" cy="605" r="6"/><circle cx="520" cy="622" r="6"/><circle cx="40" cy="300" r="5"/><circle cx="1155" cy="335" r="5"/></g>
+      </g>
+
+      <circle class="pulse" r="3.5"><animateMotion dur="5s" begin="-1.5s" repeatCount="indefinite"><mpath href="#e1"/></animateMotion></circle>
+      <circle class="pulse" r="3.5"><animateMotion dur="6s" begin="-3s" repeatCount="indefinite"><mpath href="#e3"/></animateMotion></circle>
+      <circle class="pulse" r="3.5"><animateMotion dur="7s" begin="-2s" repeatCount="indefinite"><mpath href="#e5"/></animateMotion></circle>
+      <circle class="pulse" r="3.5"><animateMotion dur="5s" begin="-2.4s" repeatCount="indefinite"><mpath href="#e7"/></animateMotion></circle>
+      <circle class="pulse" r="3.5"><animateMotion dur="6s" begin="-4s" repeatCount="indefinite"><mpath href="#e9"/></animateMotion></circle>
+      <circle class="pulse" r="3.5"><animateMotion dur="7s" begin="-5s" repeatCount="indefinite"><mpath href="#e11"/></animateMotion></circle>
+      <circle class="pulse" r="3.5"><animateMotion dur="5s" begin="-1s" repeatCount="indefinite"><mpath href="#e2"/></animateMotion></circle>
+    </svg>
   </div>
 
   <nav class="navbar">
@@ -244,6 +298,10 @@
       history.replaceState(null, '', window.location.pathname + window.location.hash);
     }
   })();
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelector('.net').pauseAnimations();
+  }
 
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
